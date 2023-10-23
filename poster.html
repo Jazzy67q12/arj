@@ -12,7 +12,8 @@
 	<body style="margin : 0px; overflow: hidden;">
 	
 		<a-scene arjs embedded rendered="logarithmicDepthBuffer: true;"
-		 vr-mode-ui="enabled: false" gesture-detector id="scene">
+		 vr-mode-ui="enabled: false"
+	         gesture-detector id="scene">
       
       <a-assets>
         
@@ -20,7 +21,6 @@
          <a-asset-item id="flower" src="https://cdn.glitch.global/18425b32-fbee-4fdf-859a-d613aaf451f1/rosa.glb?v=1697635741918"></a-asset-item>
      
       </a-assets>
-		
 			<a-marker type="barcode" value="12">		
           <a-entity     
                 gltf-model="#orchid" scale="0.09 0.09 0.09" rotation="40 85 40" position="-0.5 0 0">

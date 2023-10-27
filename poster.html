@@ -23,7 +23,7 @@
 	 <audio id="sound2" src="rosas.mp3" preload="auto"></audio> 
 
 		</a-assets>
-			<a-marker id="orchid" type="barcode" value="12">		
+			<a-marker id="orquidea" type="barcode" value="12">		
           <a-entity     
                 gltf-model="#orchid" scale="0.09 0.09 0.09" rotation="40 85 40" position="0 0 0"
 				class="clickable" gesture-handler soundhandler>
@@ -50,7 +50,7 @@
 					   var entity = document.querySelector('#audio');
 					   var entity2 = document.querySelector('#audio2');
 					
-					 if (document.querySelector('#orchid').object3D.visible == true) {
+					 if (document.querySelector('#orquidea').object3D.visible == true) {
 						entity2.components.sound.pauseSound();
 						entity.components.sound.playSound();
 						 

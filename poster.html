@@ -20,41 +20,41 @@
          <a-asset-item id="orchid" src="https://cdn.glitch.global/18425b32-fbee-4fdf-859a-d613aaf451f1/orchid.glb?v=1697549279587"></a-asset-item>
          <a-asset-item id="flower" src="https://cdn.glitch.global/18425b32-fbee-4fdf-859a-d613aaf451f1/rosa.glb?v=1697635741918"></a-asset-item>
          <audio id="sound" src="TextTo.mp3" preload="auto"></audio> 
-	 <audio id="sound2" src="rosa.mp3" preload="auto"></audio> 
+	 <audio id="sound2" src="rosas.mp3" preload="auto"></audio> 
 
 		</a-assets>
-			<a-marker id=orchid type="barcode" value="12">		
+			<a-marker id="orchid" type="barcode" value="12">		
           <a-entity     
                 gltf-model="#orchid" scale="0.09 0.09 0.09" rotation="40 85 40" position="0 0 0"
 				class="clickable" gesture-handler soundhandler>
           </a-entity>
       </a-marker>
       
-      <a-marker id=rosa type="barcode" value="20" >		
+      <a-marker id="rosa" type="barcode" value="20" >		
           <a-entity
                 gltf-model="#flower" 
                 scale="4 4 4"
                 rotation="180 90 -90"
                 position="0.7 0 0"
-				class="clickable" gesture-handler>
+				class="clickable" gesture-handler soundhandler>
           </a-entity>
       </a-marker>
-		<a-entity sound="src: #sound" autoplay="false"></a-entity>
-		<a-entity sound="src: #sound2" autoplay="false"></a-entity>
+		<a-entity id="audio" sound="src: #sound" autoplay="false"></a-entity>
+		<a-entity id="audio2" sound="src: #sound2" autoplay="false"></a-entity>
 			<a-entity camera></a-entity>
 		</a-scene>
 		
 		<script>
 			AFRAME.registerComponent('soundhandler', {
 				tick: function () {
-					   var entity = document.querySelector('#sound');
-					   var entity2 = document.querySelector('#sound2');
+					   var entity = document.querySelector('#audio');
+					   var entity2 = document.querySelector('#audio2');
 					
-					 if (document.querySelector('orchid').object3D.visible == true) {
+					 if (document.querySelector('#orchid').object3D.visible == true) {
 						entity2.components.sound.pauseSound();
 						entity.components.sound.playSound();
 						 
-					} else if (document.querySelector('rosa').object3D.visible == true) {
+					} else if (document.querySelector('#rosa').object3D.visible == true) {
 						entity.components.sound.pauseSound();
 						entity2.components.sound.playSound();
 						 

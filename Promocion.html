@@ -17,20 +17,17 @@
       
 		<a-assets>
          
-         <a-asset-item id="ra" src="https://cdn.glitch.global/de1ea5a5-46c8-4490-91ab-308c984b482e/sun.glb?v=1701892514498"></a-asset-item>
+         <a-asset-item id="ra" src="https://cdn.glitch.global/de1ea5a5-46c8-4490-91ab-308c984b482e/sun%20(2).glb?v=1701925185597"></a-asset-item>
          <a-asset-item id="in" src="https://cdn.glitch.global/de1ea5a5-46c8-4490-91ab-308c984b482e/solar_panel.glb?v=1701923215228"></a-asset-item>
          <a-asset-item id="cu" src="https://cdn.glitch.global/de1ea5a5-46c8-4490-91ab-308c984b482e/clouds.glb?v=1701923399869"></a-asset-item>
          <audio id="sound1" src="p_11574697_208.mp3" preload="auto"></audio> 
 	       <audio id="sound2" src="p_11574764_375.mp3" preload="auto"></audio> 
          <audio id="sound3" src="p_11574817_574.mp3" preload="auto"></audio>
-
-
-
 		</a-assets>
 			<a-marker id="mk1" type="barcode" value="14" raycaster="objects: .clickable">		
           <a-entity     
                 gltf-model="#ra" 
-                scale="3 3 3" 
+                scale="2 2 2" 
                 rotation="90 270 90" 
                 position="0 0 0" 
                 class="clickable" gesture-handler soundhandler>
@@ -48,7 +45,7 @@
       <a-marker id="mk3" type="barcode" value="20" raycaster="objects: .clickable">		
           <a-entity     
                 gltf-model="#cu" 
-                scale="0.007 0.007 0.007"
+                scale="0.0007 0.0007 0.0007"
                 rotation="90 270 90" 
                 position="" class="clickable" gesture-handler soundhandler>
           </a-entity>
@@ -57,9 +54,7 @@
     <a-entity id="audio1" sound="src: #sound1" autoplay="false"></a-entity>
 		<a-entity id="audio2" sound="src: #sound2" autoplay="false"></a-entity>
     <a-entity id="audio3" sound="src: #sound3" autoplay="false"></a-entity>
-		<a-entity camera></a-entity>
-		
-			
+		<a-entity camera></a-entity>	
 		</a-scene>s
 		
 		<script>

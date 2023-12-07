@@ -16,59 +16,48 @@
 		vr-mode-ui="enables:false" gesture-detector id="scene">
       
 		<a-assets>
-         <a-asset-item id="r" src="https://cdn.glitch.global/de1ea5a5-46c8-4490-91ab-308c984b482e/cloud__sun_anim.glb?v=1701838301446"></a-asset-item>
-		 <a-asset-item id="f" src="https://cdn.glitch.global/de1ea5a5-46c8-4490-91ab-308c984b482e/solar_panels.glb?v=1701838295985"></a-asset-item>
-		 <a-asset-item id="a" src="https://cdn.glitch.me/de1ea5a5-46c8-4490-91ab-308c984b482e/anteojos.glb?v=1701839520953"></a-asset-item>
-     <a-asset-item id="g" src="https://cdn.glitch.global/de1ea5a5-46c8-4490-91ab-308c984b482e/gorra_azul__v2.glb?v=1701841235840"></a-asset-item>
+         <a-asset-item id="r" src="https://cdn.glitch.global/de1ea5a5-46c8-4490-91ab-308c984b482e/sun.glb?v=1701892514498"></a-asset-item>
+		 <a-asset-item id="f" src="https://cdn.glitch.global/de1ea5a5-46c8-4490-91ab-308c984b482e/solar_panel.glb?v=1701892924974"></a-asset-item>
+		 <a-asset-item id="a" src=""></a-asset-item>
          <audio id="sound" src="p_11574697_208.mp3" preload="auto"></audio> 
 	       <audio id="sound2" src="p_11574764_375.mp3" preload="auto"></audio> 
          <audio id="sound3" src="p_11574817_574.mp3" preload="auto"></audio> 
-         <audio id="sound4" src="p_11574872_795.mp3" preload="auto"></audio> 
-
+    
 		</a-assets>
-			<a-marker id="ra" type="barcode" value="9">		
-          <a-entity     
-                gltf-model="#r" 
-                scale="4 4 4" 
-                rotation="40 85 40" 
-                position="0 0 0"
-				class="clickable" gesture-handler soundhandler>
-          </a-entity>
-      </a-marker>
       
       <a-marker id="fu" type="barcode" value="15" >		
           <a-entity
                 gltf-model="#f" 
-                scale="0.0004 0.004 0.0004"
-                rotation="180 90 90"
+                scale="0.02 0.005 0.02"   
+                rotation="0 0 0"
                 position="0 0 0"
 				class="clickable" gesture-handler soundhandler>
           </a-entity>
       </a-marker>
       
-      <a-marker id="ap" type="barcode" value="8" >		
-          <a-entity
-                gltf-model="#a" 
-                scale="4 4 4"
-                rotation="180 90 90"
-                position="0 0 0"
-				class="clickable" gesture-handler soundhandler>
-          </a-entity>
-        
-        <a-marker id="ga" type="barcode" value="6" >		
-          <a-entity
-                gltf-model="#g" 
-                scale="4 4 4"
-                rotation="180 90 90"
+			<a-marker id="ra" type="barcode" value="30">		
+          <a-entity     
+                gltf-model="#r" 
+                scale="40 40 40" 
+                rotation="0 0 0" 
                 position="0 0 0"
 				class="clickable" gesture-handler soundhandler>
           </a-entity>
       </a-marker>
+    
+      <a-marker id="ap" type="barcode" value="" >		
+          <a-entity
+                gltf-model="#a" 
+                scale="4 4 4"
+                rotation="0 0 0"
+                position="0 0 0"
+				class="clickable" gesture-handler soundhandler>
+          </a-entity>
+    
 		<a-entity camera></a-entity>
 		<a-entity id="audio" sound="src: #sound" autoplay="false"></a-entity>
 		<a-entity id="audio2" sound="src: #sound2" autoplay="false"></a-entity>
     <a-entity id="audio3" sound="src: #sound3" autoplay="false"></a-entity>
-    <a-entity id="audio4" sound="src: #sound4" autoplay="false"></a-entity>
 			
 	  </a-scene>
 		
@@ -77,8 +66,7 @@
 				tick: function () {
 					   var entity = document.querySelector('#audio');
 					   var entity2 = document.querySelector('#audio2');
-             var entity3 = document.querySelector('#audio3');
-             var entity4 = document.querySelector('#audio4');
+             var entity3 = document.querySelector('#audio3');-
 					
 					 if (document.querySelector('#r').object3D.visible == true) {
 						entity2.components.sound.pauseSound();

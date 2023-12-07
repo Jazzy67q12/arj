@@ -16,80 +16,85 @@
 		vr-mode-ui="enables:false" gesture-detector id="scene">
       
 		<a-assets>
-         <a-asset-item id="r" src="https://cdn.glitch.global/de1ea5a5-46c8-4490-91ab-308c984b482e/sun.glb?v=1701892514498"></a-asset-item>
-		 <a-asset-item id="f" src="https://cdn.glitch.global/de1ea5a5-46c8-4490-91ab-308c984b482e/solar_panel.glb?v=1701892924974"></a-asset-item>
-		 <a-asset-item id="a" src=""></a-asset-item>
-         <audio id="sound" src="p_11574697_208.mp3" preload="auto"></audio> 
+         
+         <a-asset-item id="ra" src="https://cdn.glitch.global/de1ea5a5-46c8-4490-91ab-308c984b482e/sun.glb?v=1701892514498"></a-asset-item>
+         <a-asset-item id="in" src="https://cdn.glitch.global/de1ea5a5-46c8-4490-91ab-308c984b482e/solar_panel.glb?v=1701923215228"></a-asset-item>
+         <a-asset-item id="cu" src="https://cdn.glitch.global/de1ea5a5-46c8-4490-91ab-308c984b482e/clouds.glb?v=1701923399869"></a-asset-item>
+         <audio id="sound1" src="p_11574697_208.mp3" preload="auto"></audio> 
 	       <audio id="sound2" src="p_11574764_375.mp3" preload="auto"></audio> 
-         <audio id="sound3" src="p_11574817_574.mp3" preload="auto"></audio> 
-    
+         <audio id="sound3" src="p_11574817_574.mp3" preload="auto"></audio>
+
+
+
 		</a-assets>
-      
-      <a-marker id="fu" type="barcode" value="15" >		
-          <a-entity
-                gltf-model="#f" 
-                scale="0.02 0.005 0.02"   
-                rotation="0 0 0"
-                position="0 0 0"
-				class="clickable" gesture-handler soundhandler>
-          </a-entity>
-      </a-marker>
-      
-			<a-marker id="ra" type="barcode" value="30">		
+			<a-marker id="mk1" type="barcode" value="15" raycaster="objects: .clickable">		
           <a-entity     
-                gltf-model="#r" 
-                scale="40 40 40" 
-                rotation="0 0 0" 
-                position="0 0 0"
-				class="clickable" gesture-handler soundhandler>
+                gltf-model="#ra" 
+                scale="3 3 3" 
+                rotation="90 270 90" 
+                position="0 0 0" 
+                class="clickable" gesture-handler soundhandler>
+          </a-entity>
+      </a-marker>
+      <a-marker id="mk2" type="barcode" value="30" raycaster="objects: .clickable">		
+          <a-entity     
+                gltf-model="#in" 
+                scale="1 1 1" 
+                rotation="270 270 90" 
+                position="0 0 0" 
+                class="clickable" gesture-handler soundhandler>
+          </a-entity>
+      </a-marker>
+      <a-marker id="mk3" type="barcode" value="20" raycaster="objects: .clickable">		
+          <a-entity     
+                gltf-model="#cu" 
+                scale="0.7 0.7 0.7"
+                rotation="90 270 90" 
+                position="" class="clickable" gesture-handler soundhandler>
           </a-entity>
       </a-marker>
     
-      <a-marker id="ap" type="barcode" value="" >		
-          <a-entity
-                gltf-model="#a" 
-                scale="4 4 4"
-                rotation="0 0 0"
-                position="0 0 0"
-				class="clickable" gesture-handler soundhandler>
-          </a-entity>
-    
-		<a-entity camera></a-entity>
-		<a-entity id="audio" sound="src: #sound" autoplay="false"></a-entity>
+    <a-entity id="audio1" sound="src: #sound1" autoplay="false"></a-entity>
 		<a-entity id="audio2" sound="src: #sound2" autoplay="false"></a-entity>
     <a-entity id="audio3" sound="src: #sound3" autoplay="false"></a-entity>
+		<a-entity camera></a-entity>
+		
 			
-	  </a-scene>
+		</a-scene>s
 		
 		<script>
-			AFRAME.registerComponent('soundhandler', {
-				tick: function () {
-					   var entity = document.querySelector('#audio');
-					   var entity2 = document.querySelector('#audio2');
-             var entity3 = document.querySelector('#audio3');-
-					
-					 if (document.querySelector('#r').object3D.visible == true) {
-						entity2.components.sound.pauseSound();
-						entity.components.sound.playSound();
-						 
-					} else if (document.querySelector('#f').object3D.visible == true) {
-						entity.components.sound.pauseSound();
-						entity2.components.sound.playSound();
-            
-             if (document.querySelector('#a').object3D.visible == true) {
-						entity2.components.sound.pauseSound();
-						entity.components.sound.playSound();
-						 
-					} else if (document.querySelector('#g').object3D.visible == true) {
-						entity.components.sound.pauseSound();
-						entity2.components.sound.playSound();
-						 
-				  	} else{
-						entity.components.sound.pauseSound();
-						entity2.components.sound.pauseSound();
-					}
-				 }
-			});
+      AFRAME.registerComponent('soundhandler', {
+        tick: function () {
+          var entity1 = document.querySelector('#audio1');
+          var entity2 = document.querySelector('#audio2');
+          var entity3 = document.querySelector('#audio3');
+
+          if (document.querySelector('#mk1').object3D.visible == true) {
+            entity1.components.sound.pauseSound();
+            entity2.components.sound.pauseSound();
+            entity3.components.sound.playSound();
+          } 
+          
+          else if (document.querySelector('#mk2').object3D.visible == true) {
+            entity1.components.sound.pauseSound();
+            entity2.components.sound.playSound();
+            entity3.components.sound.pauseSound();
+          }
+          
+          else if (document.querySelector('#mk3').object3D.visible == true) {
+            entity1.components.sound.playSound();
+            entity2.components.sound.pauseSound();
+            entity3.components.sound.pauseSound();
+          }
+          
+          else{
+            entity1.components.sound.pauseSound();
+            entity2.components.sound.pauseSound();
+            entity3.components.sound.pauseSound();
+          }
+        }
+      });
+
 		</script>
 		
 	</body>
